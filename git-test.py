@@ -53,20 +53,22 @@ def main(def_args=sys.argv[1:]):
     print('\nRepository generation ' +
           '\x1b[6;30;42mcompleted successfully\x1b[0m!')
 
-
+    i = 0
 def contribute(date):
     with open(os.path.join(os.getcwd(), 'README.md'), 'a') as file:
         file.write(message(date) + '\n\n')
     run(['git', 'add', '.'])
-    run(['git', 'commit', '-m', '"%s"' % message(date),
+    messageCommit = input(date.strftime('Commit message {i} at %d -%m -%Y %H:%M :'))
+    run(['git', 'commit', '-m', '"%s"' % messageCommit,
          '--date', date.strftime('"%Y-%m-%d %H:%M:%S"')])
-
+    i = i + 1
 
 def run(commands):
     Popen(commands).wait()
 
 
 def message(date):
+    
     return date.strftime('Contribution: %Y-%m-%d %H:%M')
 
 
@@ -76,6 +78,8 @@ def contributions_per_day(args):
         max_c = 20
     if max_c < 1:
         max_c = 1
+    ##fixed to 5 commits per day
+    max_c = 5
     return randint(1, max_c)
 
 
