@@ -49,13 +49,6 @@ import { FeedbackModule } from "./feedback/feedback.module";
                         url: process.env.DB_URL,
                         synchronize: true,
                         entities: ["dist/**/*.entity{.ts,.js}"],
-                        cache: {
-                            duration: 5000,
-                            type: "redis",
-                            options: {
-                                url: process.env.REDIS_URL,
-                            },
-                        },
                     };
                 } else {
                     return {
@@ -64,13 +57,6 @@ import { FeedbackModule } from "./feedback/feedback.module";
                         url: process.env.DB_LOCAL_URL,
                         synchronize: true,
                         entities: ["dist/**/*.entity{.ts,.js}"],
-                        duration: 5000,
-                        cache: {
-                            type: "redis",
-                            options: {
-                                url: process.env.REDIS_LOCAL_URL,
-                            },
-                        },
                     };
                 }
             },
