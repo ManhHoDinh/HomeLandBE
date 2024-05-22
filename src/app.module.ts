@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthModule } from "./auth/auth.module";
 import { IdGeneratorModule } from "./id-generator/id-generator.module";
 import { StorageModule } from "./storage/storage.module";
@@ -45,6 +45,7 @@ import { FeedbackModule } from "./feedback/feedback.module";
             useFactory: async () => {
                 if (process.env.IS_PRODUCTION == "true") {
                     return {
+                        logging: true,
                         type: "postgres",
                         url: process.env.DB_URL,
                         synchronize: true,
@@ -52,7 +53,7 @@ import { FeedbackModule } from "./feedback/feedback.module";
                     };
                 } else {
                     return {
-                        logging: false,
+                        logging: true,
                         type: "postgres",
                         url: process.env.DB_LOCAL_URL,
                         synchronize: true,
