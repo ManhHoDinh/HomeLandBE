@@ -4,13 +4,17 @@ There are some services and APIS we can only use with free amount, please regist
 
 * https://guides.platerecognizer.com/docs/snapshot/api-reference
 * https://supabase.com
-* Postgresql and Redis (we recommend using on [Render](https://render.com/))
+* Postgresql and Redis (we recommend using on [Render](https://render.com/)) 
+  
+  Render: free, host sleeps automatically, configuration is better than heroku, host is close.
+
+  Heroku: free for a certain time, easy to debug, easy to deploy, remote host.
 
 ## HOW TO BUILD
 ```bash
 # clone repository
-$ git clone https://github.com/phuochungus/HomeLand_Apartment_Management_BE.git
-$ cd HomeLand_Apartment_Management_BE
+$ git clone https://github.com/ManhHoDinh/HomeLandBE.git
+$ cd HomeLandBE
 
 # install dependencies
 $ npm install
@@ -78,7 +82,7 @@ $ npx supabase stop
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[NestJS](https://github.com/nestjs/nest) is a powerful and flexible framework built on Node.js, using TypeScript and inspired by software architectures like Angular. NestJS helps developers build efficient, scalable, and maintainable server-side applications.
 
 ## Installation
 
@@ -114,8 +118,22 @@ $ npm run test:cov
 
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+NestJS is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
+## Key Features of NestJS
+* TypeScript First: NestJS is built with TypeScript, offering strong typing and robust type safety. However, you can still use JavaScript if you prefer.
+
+* Modular Architecture: NestJS encourages a modular architecture, organizing the code into independent, manageable logic units.
+
+* Decorators and Metadata: NestJS leverages TypeScript decorators to define and configure application components, creating clear and understandable code.
+
+* DI (Dependency Injection): NestJS uses a powerful Dependency Injection (DI) mechanism, making it easy to manage application dependencies.
+
+* Easy Integration: NestJS can easily integrate with other Node.js libraries and frameworks, such as Express or Fastify.
+
+* MVC Support: NestJS supports the MVC (Model-View-Controller) pattern, facilitating the construction of web applications with clear and structured code.
+
+* Extensibility: NestJS can be extended using middleware, guards, pipes, and interceptors, providing control over the request/response cycle and enhancing application security.
 ## Stay in touch
 
 - Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
