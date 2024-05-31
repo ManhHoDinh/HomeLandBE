@@ -10,4 +10,4 @@ import { IdGenerator, DatetimeGenerator } from "./id-generator.service";
     ],
     exports: [IdGenerator],
 })
-export class IdGeneratorModule {}
+export class IdGeneratorModule { }

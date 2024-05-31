@@ -6,7 +6,7 @@ import { AuthService } from "./auth.service";
 @ApiTags("Authentication")
 @Controller("auth")
 export class AuthController {
-    constructor(private readonly authService: AuthService) {}
+    constructor(private readonly authService: AuthService) { }
 
     @ApiOperation({
         summary: "Sign in to get access token and account role",
