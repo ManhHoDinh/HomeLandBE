@@ -15,7 +15,6 @@ import { TokenModule } from "./token/token.module";
 import { ContractModule } from "./contract/contract.module";
 import { AvatarGeneratorModule } from "./avatar-generator/avatar-generator.module";
 import { NestjsFormDataModule } from "nestjs-form-data";
-import { AccountModule } from "./account/account.module";
 import { AdminModule } from "./admin/admin.module";
 import { EmployeeModule } from "./employee/employee.module";
 import { BuildingModule } from "./building/building.module";
@@ -32,7 +31,6 @@ import { ItemRepairInvoiceModule } from "./itemRepairInvoice/itemRepairInvoice.m
 import { RepairInvoiceModule } from "./repairInvoice/repairInvoice.module";
 import { FloorModule } from "./floor/floor.module";
 import { InvoiceModule } from './invoice/invoice.module';
-import { Feedback } from "./feedback/entities/feedback.entity";
 import { FeedbackModule } from "./feedback/feedback.module";
 @Module({
     imports: [
@@ -84,7 +82,6 @@ import { FeedbackModule } from "./feedback/feedback.module";
         NestjsFormDataModule.config({
             isGlobal: true,
         }),
-        AccountModule,
         AdminModule,
         ServiceModule,
         ServicePackageModule,
