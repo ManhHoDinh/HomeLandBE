@@ -1,17 +1,23 @@
-FROM node:18
+# Use the official Node.js 20 image as the base image
+FROM node:20
 
+# Set the working directory
 WORKDIR /app
 
-COPY package*.json .
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
-COPY . . 
+# Copy the rest of the application code
+COPY . .
 
-EXPOSE 3000
-
+# Build the NestJS application
 RUN npm run build
 
-RUN npm install -g bun  
+# Expose the port the app runs on
+EXPOSE 3000
 
-CMD ["bun", "run", "dist/main.js"]
+# Define the command to run the application
+CMD ["npm", "run", "start:prod"]
