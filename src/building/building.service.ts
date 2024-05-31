@@ -1,4 +1,3 @@
-import { isArray } from "class-validator";
 import { IdGenerator } from "../id-generator/id-generator.service";
 import { CreateBuildingDto } from "./dto/create-building.dto";
 import { Injectable, NotFoundException } from "@nestjs/common";

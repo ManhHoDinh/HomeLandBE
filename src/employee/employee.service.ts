@@ -1,17 +1,13 @@
 import {
-    ConflictException,
     Injectable,
     NotFoundException,
-    UnauthorizedException,
 } from "@nestjs/common";
-import { DeepPartial, Like } from 'typeorm';
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
+import { Like } from 'typeorm';
 import { CreateEmployeeDto } from "./dto/create-employee.dto";
 import { UpdateEmployeeDto } from "./dto/update-employee.dto";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository, TypeORMError, DataSource } from "typeorm";
 import { Employee } from "./entities/employee.entity";
-import { hashSync } from "bcrypt";
 import { StorageManager } from "../storage/storage.service";
 import { isQueryAffected } from "../helper/validation";
 import { HashService } from "../hash/hash.service";
@@ -20,8 +16,7 @@ import { AvatarGenerator } from "../avatar-generator/avatar-generator.service";
 import { MemoryStoredFile } from "nestjs-form-data";
 import { PersonRole, Profile } from "../helper/class/profile.entity";
 import { IdGenerator } from "../id-generator/id-generator.service";
-import { plainToClass, plainToInstance } from "class-transformer";
-import { profile } from "console";
+import { plainToInstance } from "class-transformer";
 
 export abstract class EmployeeRepository implements IRepository<Employee> {
     abstract findOne(id: string): Promise<Employee | null>;

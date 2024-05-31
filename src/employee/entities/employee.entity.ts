@@ -6,12 +6,10 @@ import {
     PrimaryColumn,
 } from "typeorm";
 import { Profile } from "../../helper/class/profile.entity";
-import { Gender, PersonRole } from "../../helper/class/profile.entity";
-import { ApiHideProperty, ApiProperty } from "@nestjs/swagger";
+import { PersonRole } from "../../helper/class/profile.entity";
+import { ApiHideProperty } from "@nestjs/swagger";
 @Entity()
-export class Employee {
-    
-    
+export class Employee {    
     @PrimaryColumn()
     id: string;
 

@@ -13,4 +13,4 @@ import {
     ],
     exports: [AvatarGenerator],
 })
-export class AvatarGeneratorModule {}
+export class AvatarGeneratorModule { }

@@ -4,13 +4,11 @@ import { Injectable } from "@nestjs/common";
 import { DataSource, Repository } from "typeorm";
 import { InjectDataSource, InjectRepository } from "@nestjs/typeorm";
 import { Complain, complainStatus } from "./entities/complain.entity";
-import { Floor } from "../floor/entities/floor.entity";
 import { UpdateComplainDto } from "./dto/update-complain.dto";
 import { isQueryAffected } from "../helper/validation";
 import { Manager } from "src/manager/entities/manager.entity";
 import { Task } from "src/task/entities/task.entity";
 import { Resident } from "src/resident/entities/resident.entity";
-import axios from "axios";
 @Injectable()
 export class ComplainService {
     constructor(
