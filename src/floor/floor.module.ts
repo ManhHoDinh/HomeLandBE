@@ -7,8 +7,6 @@ import { Floor } from "./entities/floor.entity";
 import { Building } from "../building/entities/building.entity";
 import { FloorController } from "./floor.controller";
 import { Global, Module } from "@nestjs/common";
-import { Like } from "typeorm";
-import { Apartment } from "src/apartment/entities/apartment.entity";
 @Global()
 @Module(
   {

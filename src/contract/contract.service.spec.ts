@@ -1,13 +1,11 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { ContractService } from "./contract.service";
-import { ContractController } from "./contract.controller";
 import { Contract } from "./entities/contract.entity";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthModule } from "../auth/auth.module";
 import { StorageModule } from "../storage/storage.module";
 import { IdGeneratorModule } from "../id-generator/id-generator.module";
 import { JwtModule, JwtService } from "@nestjs/jwt";
-import { DataSource } from "typeorm";
 
 describe("ContractService", () => {
     let service: ContractService;
