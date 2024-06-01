@@ -141,8 +141,6 @@ This project is almost completed like apartment management. However developed by
 I deeply appreciate every member of this team for showing relentless effort for this project.
 
 ## Additional information
-
-Develop by:
  [Hồ Đình Mạnh - 21522327](https://github.com/ManhHoDinh) 
  Email: 21522327@gm.uit.edu.vn
 
