@@ -1,16 +1,100 @@
-## NOTE
+## PROJECT: HOMELAND WEB
+Website Demo: [Homeland](https://uithomeland.vercel.app/)
+FontEnd Repository: [Homeland](https://github.com/ManhHoDinh/HomeLand)
+Video demo: [Youtube](https://www.youtube.com/watch?v=YjaR-8Sp0UU&t=6s)
+### BUILDING A CONDOMINIUM MANAGEMENT WEBSITE
+Instructor: Trần Tuấn Dũng
+## Student Contributors:
+| Leader  | Member | Member | Member | Member |
+| ------------- | ------------- | --------------------------|------------------------|------------------------|
+| [![](https://avatars.githubusercontent.com/u/97241076?v=4)](https://github.com/ManhHoDinh) | [![](https://avatars.githubusercontent.com/u/111514441?v=4)](https://github.com/phuochungus) | [![](https://avatars.githubusercontent.com/u/105732042?v=4)](https://github.com/vocongbinh) | [![](https://avatars.githubusercontent.com/u/100852896?v=4)](https://github.com/Daiduong1593572468) | [![](https://avatars.githubusercontent.com/u/107528091?s=96&v=4)](https://github.com/Ngan1808) |
+| [Hồ Đình Mạnh - 21522327](https://github.com/ManhHoDinh) | [Nguyễn Phước Hưng - 21520252](https://github.com/phuochungus) | [Võ Công Bình - 21521880](https://github.com/vocongbinh) | [Đinh Đại Dương - 21521986](https://github.com/Daiduong1593572468) | [Nguyễn Thị Kim Ngân - 20520915](https://github.com/Ngan1808) |
+
+
+## Technologies Used:
+* FrontEnd: 
+![alt text](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+* BackEnd: NestJS
+![alt text](https://img.shields.io/badge/nestJs-0000FF?style=for-the-badge&logo=nestjs&logoColor=red)
+* Other Technologies: Docker, Bootstrap, PostgreSQL, Supabase, Momo Payway, ChatGPT API,...
+![alt text](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![alt text](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![alt text](https://img.shields.io/badge/Supabase-B73BFE?style=for-the-badge&logo=Supabase&logoColor=FFD62E)
+![alt text](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![alt text](https://img.shields.io/badge/ChatGPT-005C84?style=for-the-badge&logo=ChatGPT&logoColor=white)
+![alt text](https://img.shields.io/badge/PostgreSQL-F24E1E?style=for-the-badge&logo=PostgreSQL&logoColor=white)
+![alt text](https://img.shields.io/badge/Bootstrap-%230db7ed.svg?style=for-the-badge&logo=Bootstrap&logoColor=white)
+![alt text](https://img.shields.io/badge/MoMo-FF9900?style=for-the-badge&logo=MOMO&logoColor=white)
+![alt text](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+## 📚 Introduction
+HomeLand is an apartment management website, it provides a centralized interface to view booking and appointment information, Manage communication with prospects, customers and tenants, track maintenance work and clean up, create dashboards and visualizations for daily reporting.
+## Roadmap
+![git git](5.png)
+
+## Functionalities
+* Information Management: Building information, residents, resident vehicles,...
+* Service Management: Expense management, service contracts, services (electricity, water,...)
+* Asset Management: Maintenance management and repair assignment
+* Rental Contract Management: a library of templates that comply with all the latest standards, allowing you to create new leases. The system creates a data warehouse of all your rental data and sends notifications about expiring and terminated contracts. You can also include specialized clauses in your contract and automatically track violations and late fees.
+
+* Report Generation: Overall population statistics, you can export reports in many chart formats by date,....
+
+* Complain & repair request: Enter a complaint comment and display a list of complaints.
+
+## 🕵️ Admin
+Designed for admin, admin is the owner of an apartment. Admin manage account information, equipment, contract, vehicle resident, building, floor, and apartment. And Admin will asign task to technicain.
+
+## 📋 Resident 
+This area is designed for resident. Resident can buy a service, complant some issues.
+
+## 📋 Technicain
+Designed for technicain who will fix some issues, see report of tasks, and create a invoice to resident or admin.
+
+## Illustrative Images:
+![alt text](image-1.png)
+![alt text](6.png)
+![alt text](2.png)
+![alt text](4.png)
+![alt text](3.png)
+![alt text](7.png)
+![alt text](9.png)
+![alt text](8.png)
+
+## Install
+[Next.js](https://nextjs.org/) project bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+To install the app, you will need to have the following installed:
+```
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+Open http://localhost:3000 with your browser to see the result.
+
+You can start editing the page by modifying ```app/page.tsx```. The page auto-updates as you edit the file.
+
+This project uses [```next/font```](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
+## Prerequisites
 There are some services and APIS we can only use with free amount, please register these service on you own and replace the api key inside  [.env.example](.env.example)
 :
 
 * https://guides.platerecognizer.com/docs/snapshot/api-reference
 * https://supabase.com
-* Postgresql and Redis (we recommend using on [Render](https://render.com/))
+* Postgresql and Redis (we recommend using on [Render](https://render.com/)) 
+  
+  * Render: free, host sleeps automatically, configuration is better than heroku, host is close.
 
-## HOW TO BUILD
+  * Heroku: free for a certain time, easy to debug, easy to deploy, remote host.
+
+## How to build
 ```bash
 # clone repository
-$ git clone https://github.com/phuochungus/HomeLand_Apartment_Management_BE.git
-$ cd HomeLand_Apartment_Management_BE
+$ git clone https://github.com/ManhHoDinh/HomeLandBE.git
+$ cd HomeLandBE
 
 # install dependencies
 $ npm install
@@ -24,7 +108,7 @@ $ cp .env.example .env
 ```
 
 
-## HOW TO RUN
+## How to run
 ```bash
 # docker compose include redis and postgresql
 # if your local machine have redis or postgresql, please turn off all in order to run properly
@@ -40,7 +124,7 @@ $ npm run start:dev
 http://localhost:3000/seed/init
 ```
 
-# HOW TO CLOSE (GRACEFULLY)
+# How To Close (GRACEFULLY)
 
 On terminal where Nestjs running press ```Ctrl + C```
 ```bash
@@ -51,77 +135,25 @@ $ docker compose stop
 $ npx supabase stop
 ```
 
+## 💕 Thanks
+This project is almost completed like apartment management. However developed by the developer team who is still university students and have not enough experiences, this project maybe has some problem. You can visit our deploy website for more experience. Thank you for visiting our project.
 
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+I deeply appreciate every member of this team for showing relentless effort for this project.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Additional information
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Develop by:
+ [Hồ Đình Mạnh - 21522327](https://github.com/ManhHoDinh) 
+ Email: 21522327@gm.uit.edu.vn
 
-## Description
+ [Nguyễn Phước Hưng - 21520252](https://github.com/phuochungus) 
+ Email: 21520252@gm.uit.edu.vn
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+ [Võ Công Bình - 21521880](https://github.com/vocongbinh) 
+ Email: 21521880@gm.uit.edu.vn
 
-## Installation
+ [Đinh Đại Dương - 21521986](https://github.com/Daiduong1593572468) 
+ Email: 21521986@gm.uit.edu.vn
 
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+ [Nguyễn Thị Kim Ngân - 20520915](https://github.com/Ngan1808)
+ Email: 20520915@gm.uit.edu.vn
