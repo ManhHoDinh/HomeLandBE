@@ -1,4 +1,3 @@
-import { Repository } from "typeorm";
 import {
     Controller,
     Get,
@@ -18,7 +17,6 @@ import { FormDataRequest } from "nestjs-form-data";
 import { UpdateFloorDto } from "./dto/update-floor.dto";
 import { CreateFloorDto } from "./dto/create-floor.dto";
 import { FloorService } from "./floor.service";
-import { id_ID } from "@faker-js/faker";
 import { Floor } from "./entities/floor.entity";
 import { Pagination } from "nestjs-typeorm-paginate/dist/pagination";
 import { IPaginationOptions } from "nestjs-typeorm-paginate/dist/interfaces";

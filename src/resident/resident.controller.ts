@@ -2,36 +2,27 @@ import {
     Controller,
     Post,
     Body,
-    UseGuards,
     Get,
     Param,
     Patch,
     Delete,
-    Req,
-    Put,
     Query,
-    ParseEnumPipe,
     DefaultValuePipe,
     ParseIntPipe,
 } from "@nestjs/common";
 import { ResidentRepository } from "./resident.service";
 import {
-    ApiBearerAuth,
     ApiConsumes,
     ApiCreatedResponse,
     ApiOperation,
-    ApiQuery,
     ApiTags,
     ApiUnprocessableEntityResponse,
 } from "@nestjs/swagger";
 
 import { FormDataRequest } from "nestjs-form-data";
-import { PersonRole } from "../helper/class/profile.entity";
-import { JWTAuthGuard } from "../auth/guard/jwt-auth.guard";
 import { CreateResidentDto } from "./dto/create-resident.dto";
 import { Resident } from "./entities/resident.entity";
 import { UpdateResidentDto } from "./dto/update-resident.dto";
-import { Auth } from "src/helper/decorator/auth.decorator";
 import { Pagination } from "nestjs-typeorm-paginate/dist/pagination";
 import { IPaginationOptions } from "nestjs-typeorm-paginate/dist/interfaces";
 

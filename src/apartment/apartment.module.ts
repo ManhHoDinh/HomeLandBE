@@ -33,4 +33,4 @@ import { Floor } from "../floor/entities/floor.entity";
     ],
     exports: [ApartmentService, Client],
 })
-export class ApartmentModule {}
+export class ApartmentModule { }

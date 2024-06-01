@@ -8,8 +8,7 @@ export abstract class AvatarGenerator {
 @Injectable()
 export class DiceBearAvatarGenerator
     extends AvatarGenerator
-    implements OnModuleInit
-{
+    implements OnModuleInit {
     private createAvatar: any;
     private collection: any;
     async onModuleInit() {

@@ -1,20 +1,14 @@
 import {
     Column,
     Entity,
-    OneToMany,
     PrimaryColumn,
-    DeleteDateColumn,
     OneToOne,
     JoinColumn,
     CreateDateColumn,
     ManyToOne,
 } from "typeorm";
-import { Floor } from "../../floor/entities/floor.entity";
-import { Apartment } from "../../apartment/entities/apartment.entity";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsNumberString, IsEnum } from "class-validator";
-import { Manager } from "src/manager/entities/manager.entity";
-import { Equipment } from "../../equipment/entities/equipment.entity";
+import { IsString, IsEnum } from "class-validator";
 import { Task } from "src/task/entities/task.entity";
 
 import { Resident } from "src/resident/entities/resident.entity";

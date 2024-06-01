@@ -18,7 +18,6 @@ import { FormDataRequest } from "nestjs-form-data";
 import { UpdateBuildingDto } from "./dto/update-building.dto";
 import { CreateBuildingDto } from "./dto/create-building.dto";
 import { BuildingService } from "./building.service";
-import { id_ID } from "@faker-js/faker";
 import { Pagination } from "nestjs-typeorm-paginate/dist/pagination";
 import { IPaginationOptions } from "nestjs-typeorm-paginate/dist/interfaces";
 import { Building } from "./entities/building.entity";

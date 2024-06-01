@@ -5,11 +5,7 @@ import { Injectable } from "@nestjs/common";
 import { DataSource, Repository } from "typeorm";
 import { InjectDataSource, InjectRepository } from "@nestjs/typeorm";
 import { Task, taskStatus } from "./entities/task.entity";
-import { Floor } from "../floor/entities/floor.entity";
-import { UpdateTaskDto } from "./dto/update-task.dto";
-import { isQueryAffected } from "../helper/validation";
 import { Manager } from "src/manager/entities/manager.entity";
-import { Resident } from "src/resident/entities/resident.entity";
 import {
     Complain,
     complainStatus,
