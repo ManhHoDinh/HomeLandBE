@@ -143,3 +143,32 @@ NestJS is an MIT-licensed open source project. It can grow thanks to the sponsor
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Deploy on Vercel
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/docs/vercel-platform) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 💕 Thanks
+This project almost completed like a real estate brokerage market. However developed by developer team who is still university students and have not enough experiences, this project maybe has some problem. You can visit our deploy website for more experience. Thank you for visiting our project.
+
+I deeply appreciate every member of this team for showing relentless effort for this project.
+
+## Additional information
+
+Develop by:
+ [Hồ Đình Mạnh - 21522327](https://github.com/ManhHoDinh) 
+ Email: 21522327@gm.uit.edu.vn
+
+ [Nguyễn Phước Hưng - 21520252](https://github.com/phuochungus) 
+ Email: 21520252@gm.uit.edu.vn
+
+ [Võ Công Bình - 21521880](https://github.com/vocongbinh) 
+ Email: 21521880@gm.uit.edu.vn
+
+ [Đinh Đại Dương - 21521986](https://github.com/Daiduong1593572468) 
+ Email: 21521986@gm.uit.edu.vn
+
+ [Nguyễn Thị Kim Ngân - 20520915](https://github.com/Ngan1808)
+ Email: 20520915@gm.uit.edu.vn
+
+Link reference to FE: [Homeland](https://github.com/ManhHoDinh/HomeLand.git)
