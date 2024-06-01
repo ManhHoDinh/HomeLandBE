@@ -60,24 +60,6 @@ Designed for technicain who will fix some issues, see report of tasks, and creat
 ![alt text](9.png)
 ![alt text](8.png)
 
-## Install
-[Next.js](https://nextjs.org/) project bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-To install the app, you will need to have the following installed:
-```
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-Open http://localhost:3000 with your browser to see the result.
-
-You can start editing the page by modifying ```app/page.tsx```. The page auto-updates as you edit the file.
-
-This project uses [```next/font```](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
 ## Prerequisites
 There are some services and APIS we can only use with free amount, please register these service on you own and replace the api key inside  [.env.example](.env.example)
 :
