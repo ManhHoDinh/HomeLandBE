@@ -3,15 +3,11 @@ import {
     Controller,
     Post,
     Body,
-    UseGuards,
     Get,
     Param,
     Patch,
     Delete,
-    Req,
-    Put,
     Query,
-    ParseEnumPipe,
     DefaultValuePipe,
     ParseIntPipe,
 } from "@nestjs/common";
@@ -24,17 +20,12 @@ import {
 } from "@nestjs/swagger";
 
 import { FormDataRequest } from "nestjs-form-data";
-import { PersonRole } from "../helper/class/profile.entity";
-import { JWTAuthGuard } from "src/auth/guard/jwt-auth.guard";
-import { Auth } from "src/helper/decorator/auth.decorator";
 import { ManagerService } from './manager.service';
 import { CreateManagerDto } from './dto/create-manager.dto';
 import { UpdateManagerDto } from './dto/update-manager.dto';
 import { Pagination } from "nestjs-typeorm-paginate/dist/pagination";
 import { IPaginationOptions } from "nestjs-typeorm-paginate/dist/interfaces";
 @ApiTags("Manager")
-// @UseGuards(JWTAuthGuard)
-// @ApiBearerAuth()
 @Controller("Manager")
 export class ManagerController {
     constructor(private readonly managerRepository: ManagerService) {}

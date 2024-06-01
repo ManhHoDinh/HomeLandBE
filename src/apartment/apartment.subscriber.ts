@@ -11,9 +11,7 @@ import { OnModuleInit } from "@nestjs/common";
 import { Client } from "elasticsearch";
 
 @EventSubscriber()
-export class ApartmentSubcriber
-    implements EntitySubscriberInterface<Apartment>, OnModuleInit
-{
+export class ApartmentSubcriber implements EntitySubscriberInterface<Apartment>, OnModuleInit {
     constructor(
         private readonly elasticSearchClient: Client,
         private readonly dataSource: DataSource,
@@ -27,7 +25,7 @@ export class ApartmentSubcriber
                 index: "apartment",
                 method: "PUT",
             });
-        } catch (error) {}
+        } catch (error) { }
     }
 
     listenTo() {

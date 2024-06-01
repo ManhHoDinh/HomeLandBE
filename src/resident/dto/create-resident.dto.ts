@@ -1,5 +1,4 @@
 import { ApiProperty, PickType } from "@nestjs/swagger";
-import { Resident } from "../entities/resident.entity";
 import { IsOptional, IsString } from "class-validator";
 import {
     HasMimeType,

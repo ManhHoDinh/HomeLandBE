@@ -1,8 +1,7 @@
-import { ApiProperty, OmitType, PartialType } from "@nestjs/swagger";
-import { IsDateString, IsOptional, IsString } from "class-validator";
+import { ApiProperty, OmitType } from "@nestjs/swagger";
+import { IsOptional } from "class-validator";
 import { CreateContractDto } from "./create-contract.dto";
-import { HasMimeType, IsFile, MaxFileSize, MemoryStoredFile } from "nestjs-form-data";
-import { commonImageMIMETypes } from "src/helper/constant";
+import { MemoryStoredFile } from "nestjs-form-data";
 
 export class UpdateContractDto extends OmitType(
     CreateContractDto,

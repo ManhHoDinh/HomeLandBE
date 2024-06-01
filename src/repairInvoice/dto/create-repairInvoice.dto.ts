@@ -1,6 +1,7 @@
-import { ApiProperty, PickType } from "@nestjs/swagger";
-import { IsString } from "class-validator";
-import { Column } from "typeorm/browser";
-export class CreateItemRepairInvoiceDto {
+import { PickType } from "@nestjs/swagger";
+import { ItemRepairInvoice } from "src/itemRepairInvoice/entities/itemRepairInvoice.entity";
 
-}
+export class CreateItemRepairInvoiceDto extends PickType(ItemRepairInvoice, [
+    "content",
+    "price"
+]) { }

@@ -1,7 +1,7 @@
 import { ApiProperty, OmitType, PartialType } from "@nestjs/swagger";
 import { MemoryStoredFile } from "nestjs-form-data";
 import { IsOptional, Validate, isArray } from "class-validator";
-import { IsURLOrImageFile } from "../isURLOrImageFile";
+import { IsURLOrImageFile } from "../../utils/isURLOrImageFile";
 import { Apartment } from "../entities/apartment.entity";
 import { Transform } from "class-transformer";
 
