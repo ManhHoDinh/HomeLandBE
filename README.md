@@ -6,9 +6,9 @@ There are some services and APIS we can only use with free amount, please regist
 * https://supabase.com
 * Postgresql and Redis (we recommend using on [Render](https://render.com/)) 
   
-  Render: free, host sleeps automatically, configuration is better than heroku, host is close.
+  * Render: free, host sleeps automatically, configuration is better than heroku, host is close.
 
-  Heroku: free for a certain time, easy to debug, easy to deploy, remote host.
+  * Heroku: free for a certain time, easy to debug, easy to deploy, remote host.
 
 ## HOW TO BUILD
 ```bash
