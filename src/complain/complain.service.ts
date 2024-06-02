@@ -46,6 +46,28 @@ export class ComplainService {
             throw error;
         }
     }
+    async createallandback(createComplainDto: CreateComplainDto): Promise<Complain> {
+        const { content, resident_id } = createComplainDto;
+        const resident = (await this.residentRepository.findOne({
+            where: {
+                id: resident_id,
+            },
+        })) as Resident;
+        const complain_id = "CL" + this.idGenerate.generateId();
+        const data = {
+            complain_id,
+            resident,
+            content,
+        };
+        const complainData = this.complainRepository.create(data);
+        try {
+            const complain = await this.complainRepository.save(complainData);
+            return complain;
+        } catch (error) {
+            throw error;
+        }
+    }
+
 
     async findAll() {
         return await this.complainRepository.find({
@@ -110,6 +132,30 @@ export class ComplainService {
         return result;
     }
     async getComplainOfBuilding(manager_id: string) {
+        const manager = await this.managerRepository.findOne({
+            where: {
+                id: manager_id
+            },
+            relations: {
+                building: true,
+            }
+        });
+        const result = await this.complainRepository.find({
+            where: {
+                resident: {
+                    stay_at: {
+                        building: {
+                            building_id: manager?.building?.building_id 
+                        }
+                    }
+                }
+            },
+            relations: ["resident", "task"]
+        })
+        return result;
+
+    }
+    async getInfor(manager_id: string) {
         const manager = await this.managerRepository.findOne({
             where: {
                 id: manager_id
