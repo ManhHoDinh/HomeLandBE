@@ -61,7 +61,22 @@ export class TypeORMFloorService extends FloorService {
             throw error;
         }
     }
+    async findonemore(
+        CreateFloorDto: CreateFloorDto,
+        id?: string,
+    ): Promise<Floor> {
+        let floor = this.floorRepository.create(CreateFloorDto);
+        floor.floor_id = "FLR" + this.idGenerate.generateId();
+        if (id) floor.floor_id = id;
 
+        try {
+            floor = await this.floorRepository.save(floor);
+            return floor;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
     async findAll() {
         return await this.floorRepository.find(
             {
@@ -117,6 +132,31 @@ export class TypeORMFloorService extends FloorService {
         } catch (error) {
             throw new Error("Method not implemented.");
         }
+    }
+    async updateFloorFromTo(
+        id: string,
+        updateFloorDto: UpdateFloorDto,
+    ): Promise<Floor> {
+        let floor = await this.floorRepository.findOne({
+            where: { floor_id: id },
+        });
+        if (!floor) throw new NotFoundException();
+        const queryRunner = this.dataSource.createQueryRunner();
+
+        try {
+            await queryRunner.connect();
+            await queryRunner.startTransaction();
+            let { max_apartment, ...rest } = updateFloorDto;
+            floor = this.floorRepository.merge(floor, updateFloorDto);
+            floor = await this.floorRepository.save(floor);
+            await queryRunner.commitTransaction();
+        } catch (error) {
+            await queryRunner.rollbackTransaction();
+            throw error;
+        } finally {
+            await queryRunner.release();
+        }
+        return floor;
     }
     async hardDelete?(id: any): Promise<boolean> {
         try {
