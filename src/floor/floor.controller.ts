@@ -76,7 +76,13 @@ export class FloorController {
         if (building) return building;
         throw new NotFoundException("Floor not found");
     }
-
+    @Get(":id")
+    async timkiemtatca(@Param("id") id: string) {
+        const decodedId = decodeURIComponent(id);
+        const building = await this.floorRepository.findOne(decodedId);
+        if (building) return building;
+        throw new NotFoundException("Floor not found");
+    }
     @Patch(":id")
     @ApiConsumes("multipart/form-data")
     @FormDataRequest()
