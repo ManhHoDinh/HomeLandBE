@@ -64,7 +64,29 @@ export class AuthServiceImp extends AuthService {
             role: person.role,
         };
     }
-
+    async Login(signInDto: SignInDto, expiresIn: string = "30d") {
+        let person = await this.findOwnerByAccountEmail(signInDto.email);
+        if (
+            !person ||
+            !person.account ||
+            !this.hashService.isMatch(
+                signInDto.password,
+                person.account.password,
+            )
+        ) {
+            throw new UnauthorizedException("Wrong email or password");
+        }
+        const payload: TokenPayload = {
+            id: person.id,
+            role: person.role,
+        };
+        return {
+            access_token: this.jwtService.sign(payload, {
+                expiresIn,
+            }),
+            role: person.role,
+        };
+    }
     async findOwnerByAccountEmail(email: string): Promise<AccountOwner | null> {
         const account = await this.accountRepository.findOne({
             where: { email },
