@@ -25,13 +25,7 @@ describe("ContractController", () => {
                                 url: process.env.DB_URL,
                                 synchronize: true,
                                 entities: ["dist/**/*.entity{.ts,.js}"],
-                                cache: {
-                                    duration: 5000,
-                                    type: "redis",
-                                    options: {
-                                        url: process.env.REDIS_URL,
-                                    },
-                                },
+
                             };
                         } else {
                             return {

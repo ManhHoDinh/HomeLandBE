@@ -30,7 +30,7 @@ async function bootstrap() {
     app.useGlobalFilters(new TypeOrmExceptionFilter());
 
     const config = new DocumentBuilder()
-        .setTitle("HomeLand example")
+        .setTitle("HomeLand API")
         .setDescription("The HomeLand API description")
         .setVersion("1.0")
         .addBearerAuth()
