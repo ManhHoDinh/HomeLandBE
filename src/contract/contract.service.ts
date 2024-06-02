@@ -1,13 +1,13 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { CreateContractDto } from "./dto/create-contract.dto";
 import { UpdateContractDto } from "./dto/update-contract.dto";
-import { DataSource, Like, Repository, TypeORMError } from "typeorm";
+import { DataSource, Repository, TypeORMError } from "typeorm";
 import { Contract } from "./entities/contract.entity";
 import { InjectDataSource, InjectRepository } from "@nestjs/typeorm";
 import { isQueryAffected } from "../helper/validation";
 import { IdGenerator } from "../id-generator/id-generator.service";
 import { StorageManager } from "../storage/storage.service";
-import { ContractRole, ContractStatusRole } from "../helper/enums/contractEnum";
+import { ContractStatusRole } from "../helper/enums/contractEnum";
 import { SearchContractDto } from "./dto/search-contract-dto";
 
 @Injectable()
@@ -146,14 +146,14 @@ export class ContractService {
                 });
             } else if (searchOptions.floorId != null) {
                 result = result.filter((contract) => {
-                    //return contract.apartment.floor_id == searchOptions.floorId;
+                    return contract.apartment.floor_id == searchOptions.floorId;
                 });
             } else if (searchOptions.buildingId != null) {
                 result = result.filter((contract) => {
-                    // return (
-                    //     contract.apartment.building_id ==
-                    //     searchOptions.buildingId
-                    // );
+                    return (
+                        contract.apartment.building_id ==
+                        searchOptions.buildingId
+                    );
                 });
             }
         } catch (error) {
@@ -161,12 +161,12 @@ export class ContractService {
         }
         return result;
     }
-    // async getContractsOfResident(residentId: string) {
-    //     const result = await this.contractRepository.find({where:{
-    //         resident_id: residentId
-    //     }, relations : {
-    //         apartment: true
-    //     }})
-    //     return result;
-    // }
+    async getContractsOfResident(residentId: string) {
+        const result = await this.contractRepository.find({where:{
+            resident_id: residentId
+        }, relations : {
+            apartment: true
+        }})
+        return result;
+    }
 }

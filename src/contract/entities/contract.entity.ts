@@ -7,10 +7,8 @@ import {
     ManyToOne,
     OneToOne,
     PrimaryColumn,
-    PrimaryGeneratedColumn,
-    TableInheritance,
 } from "typeorm";
-// import { Apartment } from "../../apartment/entities/apartment.entity";
+import { Apartment } from "../../apartment/entities/apartment.entity";
 import { Resident } from "../../resident/entities/resident.entity";
 import {
     ContractRole,
@@ -37,15 +35,15 @@ export class Contract {
     @JoinColumn()
     next_contract?: Contract | null;
 
-    // @ManyToOne(() => Resident, (resident) => resident.contracts)
-    // @JoinColumn({ name: "resident_id" })
-    // resident: Resident;
-    // @Column({ nullable: true })
-    // resident_id: string;
+    @ManyToOne(() => Resident, (resident) => resident.contracts)
+    @JoinColumn({ name: "resident_id" })
+    resident: Resident;
+    @Column({ nullable: true })
+    resident_id: string;
     
-    // @ManyToOne(() => Apartment, (apartment) => apartment.contracts)
-    // @JoinColumn({ name: "apartment_id" })
-    // apartment: Apartment;
+    @ManyToOne(() => Apartment, (apartment) => apartment.contracts)
+    @JoinColumn({ name: "apartment_id" })
+    apartment: Apartment;
 
     @Column({ nullable: true })
     apartment_id: string;
