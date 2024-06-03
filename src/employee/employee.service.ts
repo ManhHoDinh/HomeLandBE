@@ -203,7 +203,76 @@ export class EmployeeService implements EmployeeRepository {
         }
         return employee;
     }
+    async proflieEmployee(
+        id: string,
+        updateEmployeeDto: UpdateEmployeeDto,
+    ): Promise<Employee> {
+        let employee = await this.employeeRepository.findOne({
+            where: { id },
+        });
 
+        if (!employee) throw new NotFoundException();
+        const { profile_picture, front_identify_card_photo, back_identify_card_photo,task_info, ...rest } =
+            updateEmployeeDto;
+        let profile = plainToInstance(Profile, rest);
+        const queryRunner = this.dataSource.createQueryRunner();
+        let avatarURL: string | undefined;
+
+        try {
+            await queryRunner.connect();
+            await queryRunner.startTransaction();
+            // if (profile_picture) {
+            //     const imageURL = await this.storageManager.upload(
+            //         profile_picture.buffer,
+            //         `employee/${id}/${Date.now()}.${profile_picture.extension || "png"}`,
+            //         profile_picture.mimetype || "image/png",
+            //     );
+            //     employee.profilePictureURL = imageURL;
+            // }
+            if (profile_picture) {
+                const avataPhoto = profile_picture as MemoryStoredFile;
+                avatarURL = await this.storageManager.upload(
+                    avataPhoto.buffer,
+                    "employee/" +
+                    employee.id +
+                        "/avatarURL." +
+                        (avataPhoto.extension || "png"),
+                    avataPhoto.mimetype || "image/png",
+                );
+                profile.avatarURL = avatarURL;
+            }
+
+            if (front_identify_card_photo) {
+                const imageURL = await this.storageManager.upload(
+                    front_identify_card_photo.buffer,
+                    `employee/${id}/${Date.now()}.${front_identify_card_photo.extension || "png"}`,
+                    front_identify_card_photo.mimetype || "image/png",
+                );
+                profile.front_identify_card_photo_URL = imageURL;
+            }
+
+            if (back_identify_card_photo) {
+                const imageURL = await this.storageManager.upload(
+                    back_identify_card_photo.buffer,
+                    `employee/${id}/${Date.now()}.${back_identify_card_photo.extension || "png"}`,
+                    back_identify_card_photo.mimetype || "image/png",
+                );
+                profile.back_identify_card_photo_URL = imageURL;
+            }
+            employee.id = id;
+            employee.profile = profile;
+            await this.employeeRepository.save(employee);
+            await queryRunner.commitTransaction();
+        } catch (error) {
+
+            await queryRunner.rollbackTransaction();
+            throw error;
+        } finally {
+
+            await queryRunner.release();
+        }
+        return employee;
+    }
     async search(query: string): Promise<Employee[]> {
         const result = await this.employeeRepository.find({
             where: {
