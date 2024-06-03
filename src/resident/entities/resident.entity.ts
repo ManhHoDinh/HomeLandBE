@@ -16,6 +16,7 @@ import { Vehicle } from "../../vehicle/entities/vehicle.entity";
 import { Complain } from "src/complain/entities/complain.entity";
 import { Feedback } from "src/feedback/entities/feedback.entity";
 import { Invoice } from "../../invoice/entities/invoice.entity";
+import { MonthlyInvoice } from "src/monthly_invoice/entities/monthly_invoice.entity";
 
 @Entity()
 export class Resident {
@@ -60,6 +61,9 @@ export class Resident {
 
     @OneToMany(() => Complain, (complain) => complain.resident)
     complains: Complain[];
+
+    @OneToMany(()=>MonthlyInvoice, monthly_invoice => monthly_invoice.resident)
+    monthly_invoices: MonthlyInvoice[];
 
     @CreateDateColumn()
     created_at: Date;
