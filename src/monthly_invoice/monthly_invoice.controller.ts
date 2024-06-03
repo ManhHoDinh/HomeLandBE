@@ -55,6 +55,7 @@ export class MonthlyInvoiceController {
     return this.monthlyInvoiceService.findOne(id);
   }
 
+  @ApiExcludeEndpoint()
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateMonthlyInvoiceDto: UpdateMonthlyInvoiceDto) {
     return this.monthlyInvoiceService.update(id, updateMonthlyInvoiceDto);
