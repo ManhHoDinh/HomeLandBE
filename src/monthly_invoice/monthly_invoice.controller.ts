@@ -51,8 +51,8 @@ export class MonthlyInvoiceController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.monthlyInvoiceService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.monthlyInvoiceService.findOne(id);
   }
 
   @Patch(':id')
