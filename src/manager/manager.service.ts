@@ -129,6 +129,92 @@ export class ManagerService {
             throw error;
         }
     }
+    async deleteManager(createManagerDto: CreateManagerDto): Promise<Manager> {
+        const {
+            front_identify_card_photo,
+            back_identify_card_photo,
+            avatar_photo,
+            email,
+            ...rest
+        } = createManagerDto;
+
+        const profile = plainToInstance(Profile, rest);
+        let manager = new Manager();
+        manager.id = "MNG" + this.idGenerate.generateId();
+        try {
+            const frontPhoto = front_identify_card_photo as MemoryStoredFile;
+            const backPhoto = front_identify_card_photo as MemoryStoredFile;
+            const frontURL = await this.storageManager.upload(
+                frontPhoto.buffer,
+                "manager/" +
+                    manager.id +
+                    "/front_identify_card_photo_URL." +
+                    (frontPhoto.extension || "png"),
+                frontPhoto.mimetype || "image/png",
+            );
+            const backURL = await this.storageManager.upload(
+                backPhoto.buffer,
+                "manager/" +
+                    manager.id +
+                    "/back_identify_card_photo_URL." +
+                    (backPhoto.extension || "png"),
+                backPhoto.mimetype || "image/png",
+            );
+            let avatarURL: string | undefined;
+            // const avatarPhoto = avatar_photo as MemoryStoredFile;
+
+            if (avatar_photo) {
+                const avataPhoto = avatar_photo as MemoryStoredFile;
+                avatarURL = await this.storageManager.upload(
+                    avataPhoto.buffer,
+                    "manager/" +
+                        manager.id +
+                        "/avatarURL." +
+                        (avataPhoto.extension || "png"),
+                    avataPhoto.mimetype || "image/png",
+                );
+            } else {
+                const avatar = await this.avatarGenerator.generateAvatar(
+                    profile.name,
+                );
+                avatarURL = await this.storageManager.upload(
+                    avatar,
+                    "manager/" + manager.id + "/avatarURL.svg",
+                    "image/svg+xml",
+                );
+            }
+
+            profile.front_identify_card_photo_URL = frontURL;
+            profile.back_identify_card_photo_URL = backURL;
+            profile.avatarURL = avatarURL;
+            manager.profile = profile;
+            const managerData = await this.managerRepository.save(manager);
+            //set account
+            let account = new Account();
+            account.owner_id = manager.id;
+            account.email = email;
+            account.password = this.hashService.hash(profile.phone_number);
+            account.manager = manager;
+            await this.accountRepository.save(account);
+            return managerData;
+        } catch (error) {
+            if (error instanceof TypeORMError) {
+                try {
+                    await this.storageManager.remove([
+                        "/manager/" +
+                            manager.id +
+                            "/front_identify_card_photo_URL.png",
+                        "/manager/" +
+                            manager.id +
+                            "/back_identify_card_photo_URL.png",
+                    ]);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            throw error;
+        }
+    }
     async search(query: string): Promise<Manager[]> {
         const result = await this.managerRepository.find({
             where: {
