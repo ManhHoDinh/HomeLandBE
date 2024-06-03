@@ -1,4 +1,7 @@
-import { PartialType } from '@nestjs/swagger';
-import { CreateMonthlyInvoiceDto } from './create-monthly_invoice.dto';
+import { IsEnum } from "class-validator";
+import { InvoiceStatus } from "src/monthly_invoice/entities/monthly_invoice.entity";
 
-export class UpdateMonthlyInvoiceDto extends PartialType(CreateMonthlyInvoiceDto) {}
+export class UpdateMonthlyInvoiceDto {
+    @IsEnum(InvoiceStatus)
+    status: InvoiceStatus;
+}
