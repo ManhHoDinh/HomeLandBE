@@ -252,6 +252,76 @@ describe('EmployeeController', () => {
 
                         });
                 }, 30000);
+                it("should create new Employee with avata photo", async () => {
+                        jest.spyOn(EmployeeRepository, "create").mockImplementation(
+                                (entityLike: DeepPartial<Employee>) => {
+                                        return {
+                                                id: "fdsfds",
+                                                profile: {
+                                                        date_of_birth: entityLike.profile?.date_of_birth,
+                                                        name: entityLike.profile?.name,
+                                                        gender: entityLike.profile?.gender,
+                                                        phone_number: entityLike.profile?.phone_number,
+                                                        front_identify_card_photo_URL: "employee/frontIdentifyPhoto.jpg",
+                                                        back_identify_card_photo_URL: "employee/backIdentifyPhoto.jpg",
+                                                },
+                                        } as Employee;
+                                },
+                        );
+                        jest.spyOn(EmployeeRepository, "save").mockImplementation(
+                                async (dto: Employee) => {
+                                        return {
+                                                id: "fdsfds",
+                                                profile: {
+                                                        date_of_birth: dto.profile.date_of_birth,
+                                                        name: dto.profile.name,
+                                                        gender: dto.profile.gender,
+                                                        phone_number: dto.profile.phone_number,
+                                                        front_identify_card_photo_URL:
+                                                                "employee/frontIdentifyPhoto.jpg",
+                                                        back_identify_card_photo_URL:
+                                                                "employee/backIdentifyPhoto.jpg",
+                                                },
+
+                                        } as Employee;
+                                },
+                        );
+                        const result = await service.create({
+                                date_of_birth: new Date(),
+                                name: "Dinh Dai Duong",
+                                gender: Gender.MALE,
+                                phone_number: "0326465520",
+                                front_identify_card_photo: {
+                                        mimetype: 'text/csv',
+                                        buffer: Buffer.from('one,two,three'),
+                                } as MemoryStoredFile,
+
+                                back_identify_card_photo: {
+                                        mimetype: 'text/csv',
+                                        buffer: Buffer.from('one,two,three')
+                                } as MemoryStoredFile,
+                                profile_picture: {
+                                        mimetype: 'text/csv',
+                                        buffer: Buffer.from('one,two,three')
+                                } as MemoryStoredFile,
+                                task_info: '',
+                                identify_number: ''
+                        });
+                        expect(result).toEqual({
+                                id: expect.any(String),
+                                profile: {
+                                        date_of_birth: new Date(),
+                                        name: "Dinh Dai Duong",
+                                        gender: Gender.MALE,
+                                        phone_number: "0326465520",
+                                        front_identify_card_photo_URL:
+                                                "employee/frontIdentifyPhoto.jpg",
+                                        back_identify_card_photo_URL:
+                                                "employee/backIdentifyPhoto.jpg",
+                                },
+
+                        });
+                }, 30000);
                 it("should create new employee with error photo", async () => {
                         jest.spyOn(EmployeeRepository, "create").mockImplementation(
                                 (entityLike: DeepPartial<Employee>) => {
