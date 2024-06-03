@@ -91,6 +91,56 @@ export class EquipmentServiceImp extends EquipmentService {
         }
         return await this.equipmentRepository.save(equipment);
     }
+    async seeContract(
+        createEquipmentDto: CreateEquipmentDto,
+        id?: string,
+    ): Promise<Equipment> {
+        let { images, ...rest } = createEquipmentDto;
+        let equipment = this.equipmentRepository.create(rest);
+        equipment.checkFK();
+
+        const [apartment, floor, building] = await Promise.all([
+            createEquipmentDto.apartment_id
+                ? this.dataSource.getRepository(Apartment).findOneBy({
+                      apartment_id: createEquipmentDto.apartment_id,
+                  })
+                : null,
+            createEquipmentDto.floor_id
+                ? this.dataSource
+                      .getRepository(Floor)
+                      .findOneBy({ floor_id: createEquipmentDto.floor_id })
+                : null,
+            createEquipmentDto.building_id
+                ? this.dataSource.getRepository(Building).findOneBy({
+                      building_id: createEquipmentDto.building_id,
+                  })
+                : null,
+        ]);
+        if (!apartment && !floor && !building)
+            throw new BadRequestException(
+                "apartment_id, floor_id, building_id not found",
+            );
+
+        if (id) equipment.id = id;
+        else equipment.id = "EQM" + this.idGenerate.generateId();
+        if (!(images && images.length > 0)) images = [];
+        try {
+            const imageURLs = await Promise.all(
+                images.map((file, index) => {
+                    return this.storageManager.upload(
+                        file.buffer,
+                        `equipment/${equipment.id}/${index + Date.now()}`,
+                        `image/${file.extension ?? "png"}`,
+                    );
+                }),
+            );
+            equipment.imageURLs = imageURLs;
+        } catch (error) {
+            await this.storageManager.remove([`equipment/${equipment.id}`]);
+            throw error;
+        }
+        return await this.equipmentRepository.save(equipment);
+    }
 
     async findAll(page?: number): Promise<Equipment[]> {
         if (page) {
