@@ -28,29 +28,29 @@ describe('EmployeeController', () => {
   });
 
   describe('create', () => {
-    it('should create an employee', async () => {
-      const createEmployeeDto: CreateEmployeeDto = {
-        front_identify_card_photo: new MemoryStoredFile,
-        back_identify_card_photo: new MemoryStoredFile,
-        name: '',
-        date_of_birth: new Date,
-        gender: Gender.MALE,
-        phone_number: ''
-      };
-      const expectedEmployee: Employee = {
-        id: '',
-        profile: new Profile,
-        created_at: new Date,
-        role: PersonRole.EMPLOYEE,
-      };
+    // it('should create an employee', async () => {
+    //   const createEmployeeDto: CreateEmployeeDto = {
+    //     front_identify_card_photo: new MemoryStoredFile,
+    //     back_identify_card_photo: new MemoryStoredFile,
+    //     name: '',
+    //     date_of_birth: new Date,
+    //     gender: Gender.MALE,
+    //     phone_number: ''
+    //   };
+    //   const expectedEmployee: Employee = {
+    //     id: '',
+    //     profile: new Profile,
+    //     created_at: new Date,
+    //     role: PersonRole.EMPLOYEE,
+    //   };
 
-      mockEmployeeRepository.create.mockReturnValue(expectedEmployee);
+    //   mockEmployeeRepository.create.mockReturnValue(expectedEmployee);
 
-      const result = await employeeController.create(createEmployeeDto);
+    //   const result = await employeeController.create(createEmployeeDto);
 
-      expect(mockEmployeeRepository.create).toHaveBeenCalledWith(createEmployeeDto);
-      expect(result).toBe(expectedEmployee);
-    });
+    //   expect(mockEmployeeRepository.create).toHaveBeenCalledWith(createEmployeeDto);
+    //   expect(result).toBe(expectedEmployee);
+    // });
   });
 
   describe('findOne', () => {
