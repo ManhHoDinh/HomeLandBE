@@ -6,7 +6,11 @@ import {
     Patch,
     Param,
     Delete,
+    Redirect,
     Query,
+    UseGuards,
+    UploadedFile,
+    ParseFilePipe,
     NotFoundException,
 } from "@nestjs/common";
 import { ContractService } from "./contract.service";

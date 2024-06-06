@@ -18,4 +18,4 @@ import { JWTAuthGuard } from "./guard/jwt-auth.guard";
     controllers: [AuthController],
     exports: [AuthService, JWTAuthGuard],
 })
-export class AuthModule { }
+export class AuthModule {}

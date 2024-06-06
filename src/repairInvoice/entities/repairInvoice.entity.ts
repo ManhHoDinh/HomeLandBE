@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEnum, IsNumberString } from "class-validator";
+import { IsEnum, IsNumber, IsNumberString, IsString } from "class-validator";
 import { ItemRepairInvoice } from "src/itemRepairInvoice/entities/itemRepairInvoice.entity";
 import { Task } from "src/task/entities/task.entity";
 
-import {OneToOne, OneToMany, Column, CreateDateColumn, JoinColumn, PrimaryColumn, Entity } from "typeorm";
+import {OneToOne, OneToMany, Column, CreateDateColumn, JoinColumn, ManyToOne, PrimaryColumn, Entity } from "typeorm";
 export enum repairInvoiceStatus {
     REJECTED = "Rejected",
     PENDING = "Pending",

@@ -107,6 +107,7 @@ export class ApartmentServiceImp extends ApartmentService {
             );
 
             if (!this.isPromiseFulfilledResultArray(uploadResults)) {
+                console.log(uploadResults)
                 throw new StorageError("Some image upload failed");
             }
 

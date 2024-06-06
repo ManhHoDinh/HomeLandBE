@@ -7,6 +7,8 @@ import {
     ManyToOne,
     OneToOne,
     PrimaryColumn,
+    PrimaryGeneratedColumn,
+    TableInheritance,
 } from "typeorm";
 import { Apartment } from "../../apartment/entities/apartment.entity";
 import { Resident } from "../../resident/entities/resident.entity";

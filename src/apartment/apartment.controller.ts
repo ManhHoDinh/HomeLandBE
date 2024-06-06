@@ -21,7 +21,7 @@ import { SearchDto } from "./dto/search-apartment.dto";
 @ApiTags("Apartment")
 @Controller("apartment")
 export class ApartmentController {
-    constructor(private readonly apartmentRepository: ApartmentService) { }
+    constructor(private readonly apartmentRepository: ApartmentService) {}
 
     @Post()
     @ApiConsumes("multipart/form-data")

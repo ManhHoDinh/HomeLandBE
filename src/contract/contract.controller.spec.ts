@@ -7,7 +7,9 @@ import { AuthModule } from "../auth/auth.module";
 import { StorageModule } from "../storage/storage.module";
 import { IdGeneratorModule } from "../id-generator/id-generator.module";
 import { JwtModule, JwtService } from "@nestjs/jwt";
+import { DataSource } from "typeorm";
 import { JWTAuthGuard } from "../auth/guard/jwt-auth.guard";
+import { ContractModule } from "./contract.module";
 import { FormDataRequest } from "nestjs-form-data";
 
 describe("ContractController", () => {

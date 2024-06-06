@@ -6,13 +6,15 @@ import {
     Patch,
     Param,
     NotFoundException,
+    Delete,
     Query,
 } from "@nestjs/common";
 
-import { ApiConsumes, ApiOperation, ApiTags } from "@nestjs/swagger";
+import { ApiConsumes, ApiOperation, ApiQuery, ApiTags } from "@nestjs/swagger";
 import { FormDataRequest } from "nestjs-form-data";
 import { TaskService } from "./task.service";
 import { CreateTaskDto } from "./dto/create-task.dto";
+import { UpdateTaskDto } from "./dto/update-task.dto";
 
 @ApiTags("Task")
 @Controller("task")
