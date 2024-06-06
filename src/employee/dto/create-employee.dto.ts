@@ -1,5 +1,4 @@
 import { ApiProperty, PickType } from "@nestjs/swagger";
-import { Employee } from "../entities/employee.entity";
 import { IsOptional, IsString } from "class-validator";
 import {
     HasMimeType,

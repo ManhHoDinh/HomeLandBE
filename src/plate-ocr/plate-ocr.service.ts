@@ -5,7 +5,7 @@ import FormData from "form-data";
 export abstract class PlateOCRService {
     /**
      *  Get plate number from image
-     * @param buffer bufer òf the image
+     * @param buffer bufer of the image
      * @returns [plateNumber, error]
      */
     abstract getPlateNumberFromImage(

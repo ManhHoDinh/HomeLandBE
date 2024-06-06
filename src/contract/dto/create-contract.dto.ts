@@ -1,12 +1,5 @@
 import { ApiProperty, PickType } from "@nestjs/swagger";
-import { IsDateString, IsOptional, IsString } from "class-validator";
-import {
-    HasMimeType,
-    IsFile,
-    MaxFileSize,
-    MemoryStoredFile,
-} from "nestjs-form-data";
-import { commonImageMIMETypes } from "../../helper/constant";
+import { IsOptional, IsString } from "class-validator";
 import { Contract } from "../entities/contract.entity";
 
 export class CreateContractDto extends PickType(Contract, ['role'] as const) {

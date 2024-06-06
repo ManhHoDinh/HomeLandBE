@@ -32,8 +32,6 @@ import { RepairInvoiceModule } from "./repairInvoice/repairInvoice.module";
 import { FloorModule } from "./floor/floor.module";
 import { InvoiceModule } from './invoice/invoice.module';
 import { FeedbackModule } from "./feedback/feedback.module";
-import { MonthlyInvoiceModule } from './monthly_invoice/monthly_invoice.module';
-import { MomoModule } from './momo/momo.module';
 @Module({
     imports: [
         ConfigModule.forRoot({ isGlobal: true }),
@@ -92,8 +90,6 @@ import { MomoModule } from './momo/momo.module';
         RepairInvoiceModule,
         ItemRepairInvoiceModule,
         InvoiceModule,
-        MonthlyInvoiceModule,
-        MomoModule,
     ],
     controllers: [AppController],
     providers: [AppService],

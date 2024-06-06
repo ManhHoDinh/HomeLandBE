@@ -9,7 +9,7 @@ import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { StorageManager } from '../storage/storage.service';
 import { Gender, PersonRole, Profile } from "../helper/class/profile.entity";
 import { HashService } from '../hash/hash.service';
-// import { AvatarGenerator } from '../avatar-generator/avatar-generator.service';
+import { AvatarGenerator } from '../avatar-generator/avatar-generator.service';
 import { IdGenerator } from '../id-generator/id-generator.service';
 import { AuthModule } from '../auth/auth.module';
 import { StorageModule } from '../storage/storage.module';
