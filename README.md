@@ -1,6 +1,6 @@
 ## PROJECT: HOMELAND WEB
 Website Demo: [Homeland](https://uithomeland.vercel.app/)
-FontEnd Repository: [Homeland](https://github.com/ManhHoDinh/HomeLand)
+Backend Repository: [HomelandBE](https://github.com/ManhHoDinh/HomeLandBE)
 Video demo: [Youtube](https://www.youtube.com/watch?v=YjaR-8Sp0UU&t=6s)
 ### BUILDING A CONDOMINIUM MANAGEMENT WEBSITE
 Instructor: Trần Tuấn Dũng
@@ -60,62 +60,24 @@ Designed for technicain who will fix some issues, see report of tasks, and creat
 ![alt text](9.png)
 ![alt text](8.png)
 
-## Prerequisites
-There are some services and APIS we can only use with free amount, please register these service on you own and replace the api key inside  [.env.example](.env.example)
-:
+## Install
+[Next.js](https://nextjs.org/) project bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-* https://guides.platerecognizer.com/docs/snapshot/api-reference
-* https://supabase.com
-* Postgresql and Redis (we recommend using on [Render](https://render.com/)) 
-  
-  * Render: free, host sleeps automatically, configuration is better than heroku, host is close.
-
-  * Heroku: free for a certain time, easy to debug, easy to deploy, remote host.
-
-## How to build
-```bash
-# clone repository
-$ git clone https://github.com/ManhHoDinh/HomeLandBE.git
-$ cd HomeLandBE
-
-# install dependencies
-$ npm install
-
-# pull necessary images
-$ docker compose pull
-
-# rename .env.example to .env
-# you might change some variable if you need to connect to real redis, postgresql or supabase project
-$ cp .env.example .env
+To install the app, you will need to have the following installed:
 ```
-
-
-## How to run
-```bash
-# docker compose include redis and postgresql
-# if your local machine have redis or postgresql, please turn off all in order to run properly
-$ docker compose up -d
-
-# start supabase local
-$ npx supabase start
-
-# start nestjs
-$ npm run start:dev
-
-# you might need to send HTTP GET to this endpoint to create empty database and S3 storage:
-http://localhost:3000/seed/init
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
+Open http://localhost:3000 with your browser to see the result.
 
-# How To Close (GRACEFULLY)
+You can start editing the page by modifying ```app/page.tsx```. The page auto-updates as you edit the file.
 
-On terminal where Nestjs running press ```Ctrl + C```
-```bash
-# stop docker containers
-$ docker compose stop
-
-# stop supabase
-$ npx supabase stop
-```
+This project uses [```next/font```](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
 
 ## 💕 Thanks
 This project is almost completed like apartment management. However developed by the developer team who is still university students and have not enough experiences, this project maybe has some problem. You can visit our deploy website for more experience. Thank you for visiting our project.
@@ -123,6 +85,7 @@ This project is almost completed like apartment management. However developed by
 I deeply appreciate every member of this team for showing relentless effort for this project.
 
 ## Additional information
+
  [Hồ Đình Mạnh - 21522327](https://github.com/ManhHoDinh) 
  Email: 21522327@gm.uit.edu.vn
 
@@ -137,3 +100,42 @@ I deeply appreciate every member of this team for showing relentless effort for 
 
  [Nguyễn Thị Kim Ngân - 20520915](https://github.com/Ngan1808)
  Email: 20520915@gm.uit.edu.vn
+## Seminar Question
+Question 1: Hãy thuyết phục tôi dùng NestJS mà không dùng các công cụ khác
+
+NestJS là một framework Node.js mạnh mẽ và linh hoạt, đặc biệt phù hợp cho việc xây dựng các ứng dụng server-side hiện đại. Dưới đây là một số lý do nên chọn NestJS:
+
+1. Kiến trúc mô-đun hóa
+NestJS được thiết kế dựa trên kiến trúc mô-đun hóa, giúp bạn dễ dàng tổ chức và quản lý mã nguồn của mình. Điều này giúp ứng dụng của bạn trở nên dễ bảo trì và mở rộng hơn.
+
+2. Hỗ trợ TypeScript
+NestJS được viết bằng TypeScript, mang lại lợi ích từ tính năng typing mạnh mẽ, giúp phát hiện lỗi trong quá trình phát triển và cải thiện năng suất của lập trình viên.
+
+3. Tính nhất quán và dễ sử dụng
+NestJS sử dụng các khái niệm quen thuộc từ Angular như các decorator, DI (Dependency Injection), và các module, giúp bạn có một nền tảng phát triển nhất quán và dễ hiểu. Nếu bạn đã quen thuộc với Angular, việc chuyển sang NestJS sẽ rất tự nhiên.
+
+4. Hỗ trợ đa nền tảng
+NestJS có thể tích hợp dễ dàng với các thư viện và công cụ khác như Express hoặc Fastify, cho phép bạn xây dựng các ứng dụng từ nhỏ đến lớn một cách linh hoạt và hiệu quả.
+
+5. Cộng đồng lớn và tài liệu phong phú
+NestJS có một cộng đồng lớn và tích cực, cùng với tài liệu chi tiết và dễ hiểu, giúp bạn dễ dàng tìm kiếm sự trợ giúp và học hỏi từ những người khác.
+
+6. Tích hợp dễ dàng với các công nghệ phổ biến
+NestJS tích hợp tốt với nhiều công nghệ và công cụ phổ biến khác như GraphQL, WebSockets, và microservices, cho phép bạn xây dựng các ứng dụng phức tạp và hiệu suất cao.
+
+7. Tính năng bảo mật mạnh mẽ
+NestJS cung cấp các tính năng bảo mật mạnh mẽ và dễ dàng tích hợp với các giải pháp bảo mật phổ biến như Passport, giúp bảo vệ ứng dụng của bạn khỏi các mối đe dọa bảo mật tiềm tàng.
+
+8. Tích hợp với hệ thống test
+NestJS hỗ trợ tích hợp tốt với các công cụ kiểm thử như Jest, giúp bạn dễ dàng viết và chạy các bài kiểm thử cho ứng dụng của mình, đảm bảo chất lượng mã nguồn.
+
+9. Hiệu suất cao
+Với khả năng tối ưu hóa và tích hợp với các công cụ hiệu suất như Fastify, NestJS có thể cung cấp hiệu suất cao cho các ứng dụng đòi hỏi khả năng xử lý nhiều yêu cầu cùng lúc.
+
+Question 2: NestJS so với cái framework nổi tiếng khác hiện có điểm gì hơn? Lương dev NestJS mới ra trường được bao nhiêu?
+| Tiêu chí            | NestJS                                    | Express.js                                | Django                                        | Flask                                         | Spring Boot                               | Ruby on Rails                             |
+|---------------------|-------------------------------------------|-------------------------------------------|----------------------------------------------|----------------------------------------------|-------------------------------------------|-------------------------------------------|
+| Hiệu suất           | Tốt nhờ nền tảng Node.js                  | Tốt nhờ nền tảng Node.js                  | Trung bình do sử dụng Python                 | Trung bình do sử dụng Python                | Tốt nhờ sử dụng Java, nhưng có thể nặng về bộ nhớ | Trung bình, nhưng đã được cải thiện trong phiên bản mới nhất |
+| Sử dụng bộ nhớ      | Thấp, nhờ vào hiệu quả của Node.js        | Thấp, nhờ vào hiệu quả của Node.js        | Cao hơn do đặc điểm của Python và nhiều tính năng tích hợp | Thấp, do là microframework                | Trung bình đến cao, do JVM và tính năng phong phú | Cao, do Ruby và nhiều tính năng tích hợp |
+| Sử dụng CPU         | Hiệu quả, đặc biệt với các tác vụ I/O     | Hiệu quả, đặc biệt với các tác vụ I/O     | Sử dụng CPU trung bình, tốt hơn cho các tác vụ CPU-bound | Sử dụng CPU trung bình, tốt hơn cho các tác vụ CPU-bound | Tốt, đặc biệt với các tác vụ yêu cầu nhiều tính toán | Trung bình đến cao, phụ thuộc vào các tác vụ và cấu hình hệ thống |
+| Thời gian phản hồi  | Thấp, nhờ vào khả năng xử lý không đồng bộ và hiệu quả của Node.js | Thấp, nhờ vào khả năng xử lý không đồng bộ và hiệu quả của Node.js | Cao hơn do đặc điểm của Python và nhiều tính năng tích hợp | Cao hơn do đặc điểm của Python và nhiều tính năng tích hợp | Thấp, nhờ vào hiệu suất của Java và khả năng xử lý đồng thời | Cao hơn, nhưng đã được cải thiện        |
